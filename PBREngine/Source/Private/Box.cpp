@@ -13,10 +13,19 @@ Box::Box(ObjectInitData _OI) : WorldObject(_OI)
 
 	m_staticMeshComponent = AddComponent<StaticMeshComponent>();
 	m_staticMeshComponent->SetupAttachment(m_rigidBody);
-	m_staticMeshComponent->SetStaticMesh(AssetManager::LoadAsset<StaticMesh>("Assets/StaticMeshes/box.obj"));
+	m_staticMeshComponent->SetStaticMesh(AssetManager::LoadAsset<StaticMesh>("Assets/StaticMeshes/Render_ball.obj"));
 }
-
 
 Box::~Box()
 {
+}
+
+StaticMeshComponent* Box::GetStaticMesh() const
+{
+	return m_staticMeshComponent;
+}
+
+RigidbodyComponent* Box::GetRigidBody() const
+{
+	return m_rigidBody;
 }

@@ -51,7 +51,6 @@ public:
 
 	class World* GetWorld() const override;
 
-
 protected:
 	bool bIsVisible;
 	class WorldComponent* m_rootComponent;

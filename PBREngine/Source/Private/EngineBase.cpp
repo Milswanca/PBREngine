@@ -118,6 +118,8 @@ void EngineBase::EngineLoop()
 		deltaTime = currentFrame - lastFrame; 
 		lastFrame = currentFrame;
 
+		if (deltaTime > 0.3f) { deltaTime = 0.3f; }
+
 		//m_systems[ESystemType::ST_None]->Update(deltaTime);
 		CurrentWorld->Tick(deltaTime);
 		m_systems[ESystemType::ST_Physics]->Update(deltaTime);

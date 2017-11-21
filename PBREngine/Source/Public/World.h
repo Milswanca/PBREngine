@@ -23,10 +23,19 @@ public:
 	virtual World* GetWorld() const override;
 	class PxScene* GetPhysXScene() const;
 
+	class Skybox* GetSkybox() const;
+
 private:
+	class Skybox* m_skybox = nullptr;
 	class PxScene* m_physxScene = nullptr;
 	class PhysicsManager* m_physicsManager = nullptr;
 
 	World* m_thisWorld;
 	class ObjectFactory* m_objectFactory;
+
+	float metallic = 1.0f;
+	float roughness = 0.2f;
+	glm::vec3 albedo = glm::vec3(1, 1, 1);
+
+	std::vector<class Box*> m_boxes;
 };
