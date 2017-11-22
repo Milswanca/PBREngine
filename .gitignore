@@ -53,7 +53,6 @@ artifacts/
 *_i.h
 *.ilk
 *.meta
-*.obj
 *.pch
 *.pdb
 *.pgc
@@ -86,6 +85,7 @@ ipch/
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
+
 
 # Visual Studio profiler
 *.psess
