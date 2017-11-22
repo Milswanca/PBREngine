@@ -34,6 +34,7 @@
 #include "TriangleDrawComponent.h"
 #include "TriangleDrawer.h"
 #include "UniformBufferObject.h"
+#include "Vector3.h"
 #include "World.h"
 #include "WorldComponent.h"
 #include "WorldObject.h"

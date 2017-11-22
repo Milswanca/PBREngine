@@ -20,5 +20,7 @@ private:
 	class PhysicsManager* m_physicsManager = nullptr;
 
 	bool m_isKinematic = false;
+
+	void OnTransformUpdated(class Transform* _transform);
 };
 

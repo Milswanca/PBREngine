@@ -197,4 +197,6 @@ void Transform::UpdateTransform()
 	{
 		i->UpdateTransform();
 	}
+
+	OnTransformUpdatedDelegate.Invoke(this);
 }

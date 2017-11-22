@@ -200,6 +200,7 @@
     <ClCompile Include="Source\Private\Texture.cpp" />
     <ClCompile Include="Source\Private\SystemBase.cpp" />
     <ClCompile Include="Source\Private\UniformBufferObject.cpp" />
+    <ClCompile Include="Source\Private\Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Public\Box.h" />
@@ -247,6 +248,7 @@
     <ClInclude Include="Source\Public\Texture.h" />
     <ClInclude Include="Source\Public\SystemBase.h" />
     <ClInclude Include="Source\Public\UniformBufferObject.h" />
+    <ClInclude Include="Source\Public\Vector3.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\colorLit.frag" />

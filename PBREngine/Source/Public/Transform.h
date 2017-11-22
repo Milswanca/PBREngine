@@ -33,6 +33,8 @@ public:
 
 	void UpdateTransform();
 
+	Delegate<void, Transform*> OnTransformUpdatedDelegate;
+
 private:
 	glm::mat4 m_scaleMatrix;
 	glm::mat4 m_locationMatrix;

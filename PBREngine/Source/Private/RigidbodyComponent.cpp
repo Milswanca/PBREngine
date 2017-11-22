@@ -4,6 +4,8 @@
 RigidbodyComponent::RigidbodyComponent(ObjectInitData _OI) : WorldComponent(_OI)
 {
 	m_physicsManager = GetEngine()->GetPhysicsSystem();
+
+	GetTransform()->OnTransformUpdatedDelegate.Add(this, &RigidbodyComponent::OnTransformUpdated);
 }
 
 RigidbodyComponent::~RigidbodyComponent()
@@ -52,5 +54,18 @@ PxActor* RigidbodyComponent::GetPhysxActor() const
 	else
 	{
 		return m_rigidActor;
+	}
+}
+
+void RigidbodyComponent::OnTransformUpdated(Transform* _transform)
+{
+	if (m_isKinematic)
+	{
+		PxTransform newPose = PxTransform()
+		m_staticActor->setGlobalPose()
+	}
+	else
+	{
+
 	}
 }
