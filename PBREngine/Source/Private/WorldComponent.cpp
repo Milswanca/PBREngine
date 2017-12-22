@@ -73,12 +73,12 @@ WorldObject* WorldComponent::GetOwner() const
 	return m_owner;
 }
 
-void WorldComponent::Rotate(float angle, glm::vec3 axis)
+void WorldComponent::Rotate(float angle, Vector3 axis)
 {
 	GetTransform()->Rotate(angle, axis);
 }
 
-void WorldComponent::SetLocalLocation(glm::vec3 location)
+void WorldComponent::SetLocalLocation(Vector3 location)
 {
 	GetTransform()->SetLocalLocation(location);
 }
@@ -88,12 +88,12 @@ void WorldComponent::SetLocalRotation(glm::quat rotation)
 	GetTransform()->SetLocalRotation(rotation);
 }
 
-void WorldComponent::SetLocalScale(glm::vec3 scale)
+void WorldComponent::SetLocalScale(Vector3 scale)
 {
 	GetTransform()->SetLocalScale(scale);
 }
 
-void WorldComponent::SetWorldLocation(glm::vec3 location)
+void WorldComponent::SetWorldLocation(Vector3 location)
 {
 	GetTransform()->SetWorldLocation(location);
 }

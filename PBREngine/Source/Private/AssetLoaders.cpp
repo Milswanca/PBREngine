@@ -43,7 +43,7 @@ StaticMesh* AssetLoader<StaticMesh>::LoadStaticMesh(std::string file, bool bReca
 				EndShape();
 			}
 
-			glm::vec3 vertex;
+			Vector3 vertex;
 			sscanf(line.c_str(), "v %f %f %f\n", &vertex.x, &vertex.y, &vertex.z);
 			verts.push_back(vertex);
 
@@ -69,7 +69,7 @@ StaticMesh* AssetLoader<StaticMesh>::LoadStaticMesh(std::string file, bool bReca
 				EndShape();
 			}
 
-			glm::vec3 normal;
+			Vector3 normal;
 			sscanf(line.c_str(), "vn %f %f %f\n", &normal.x, &normal.y, &normal.z);
 			normals.push_back(normal);
 
@@ -195,9 +195,9 @@ StaticMesh* AssetLoader<StaticMesh>::LoadStaticMesh(std::string file, bool bReca
 
 void AssetLoader<StaticMesh>::SaveOutSubmeshes()
 {
-	std::vector<glm::vec3> meshVerts;
+	std::vector<Vector3> meshVerts;
 	std::vector<glm::vec2> meshUVs;
-	std::vector<glm::vec3> meshNormals;
+	std::vector<Vector3> meshNormals;
 
 	for (int i = 0; i < shapeLoadData.size(); i++)
 	{
@@ -339,21 +339,21 @@ Material* AssetLoader<Material>::LoadMTL(std::string fileDir, std::string fileNa
 				float ambient[3];
 				sscanf(line.c_str(), "Ka %f %f %f", &ambient[0], &ambient[1], &ambient[2]);
 
-				currentMaterial->SetVector3Value("AmbientColour", glm::vec3(ambient[0], ambient[1], ambient[2]));
+				currentMaterial->SetVector3Value("AmbientColour", Vector3(ambient[0], ambient[1], ambient[2]));
 			}
 			else if (strcmp(lineHeader, "Kd") == 0)
 			{
 				float diffuse[3];
 				sscanf(line.c_str(), "Kd %f %f %f", &diffuse[0], &diffuse[1], &diffuse[2]);
 
-				currentMaterial->SetVector3Value("DiffuseColour", glm::vec3(diffuse[0], diffuse[1], diffuse[2]));
+				currentMaterial->SetVector3Value("DiffuseColour", Vector3(diffuse[0], diffuse[1], diffuse[2]));
 			}
 			else if (strcmp(lineHeader, "Ks") == 0)
 			{
 				float specular[3];
 				sscanf(line.c_str(), "Ks %f %f %f", &specular[0], &specular[1], &specular[2]);
 
-				currentMaterial->SetVector3Value("SpecularColour", glm::vec3(specular[0], specular[1], specular[2]));
+				currentMaterial->SetVector3Value("SpecularColour", Vector3(specular[0], specular[1], specular[2]));
 			}
 			else if (strcmp(lineHeader, "d") == 0)
 			{

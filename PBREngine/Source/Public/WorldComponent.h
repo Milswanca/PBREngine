@@ -40,18 +40,18 @@ public:
 
 	void SetWorldLocation(glm::vec3 location);
 
-	glm::vec3 GetLocalLocation();
+	Vector3 GetLocalLocation();
 	glm::quat GetLocalRotation();
-	glm::vec3 GetLocalScale();
+	Vector3 GetLocalScale();
 	glm::mat4 GetLocalMatrix() const;
-	glm::vec3 GetWorldLocation();
+	Vector3 GetWorldLocation();
 	glm::quat GetWorldRotation();
-	glm::vec3 GetWorldScale();
+	Vector3 GetWorldScale();
 	glm::mat4 GetWorldMatrix() const;
 
-	glm::vec3 GetRightVector();
-	glm::vec3 GetUpVector();
-	glm::vec3 GetForwardVector();
+	Vector3 GetRightVector();
+	Vector3 GetUpVector();
+	Vector3 GetForwardVector();
 #pragma endregion
 };
 

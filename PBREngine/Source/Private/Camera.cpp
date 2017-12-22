@@ -19,7 +19,7 @@ void Camera::Begin()
 
 	m_camera = AddComponent<CameraComponent>();
 	m_camera->SetupAttachment(m_rootComponent);
-	//m_camera->SetLocalLocation(glm::vec3(, 0, 0));
+	//m_camera->SetLocalLocation(Vector3(, 0, 0));
 }
 
 void Camera::Tick(float deltaTime)
@@ -64,18 +64,18 @@ void Camera::Tick(float deltaTime)
 
 		if (Input::IsKeyDown(EKeyType::KEY_D))
 		{
-			glm::vec3 right = GetRightVector();
+			Vector3 right = GetRightVector();
 			SetLocation(GetLocation() - (right * speed));
 		}
 
 		if (Input::IsKeyDown(EKeyType::KEY_E))
 		{
-			SetLocation(GetLocation() + glm::vec3(0, 1, 0) * speed);
+			SetLocation(GetLocation() + Vector3(0, 1, 0) * speed);
 		}
 
 		if (Input::IsKeyDown(EKeyType::KEY_Q))
 		{
-			SetLocation(GetLocation() - glm::vec3(0, 1, 0) * speed);
+			SetLocation(GetLocation() - Vector3(0, 1, 0) * speed);
 		}
 
 		glm::vec2 mouseDelta = Input::GetMouseDelta();

@@ -18,7 +18,7 @@ void RigidbodyComponent::Tick(float _deltaTime)
 	WorldComponent::Tick(_deltaTime);
 
 	PxVec3 physXVec = m_rigidActor->getGlobalPose().p;
-	SetWorldLocation(glm::vec3(physXVec.x, physXVec.y, physXVec.z));
+	SetWorldLocation(physXVec);
 	PxQuat physXQuat = m_rigidActor->getGlobalPose().q;
 	SetLocalRotation(glm::quat(physXQuat.w, physXQuat.x, physXQuat.y, physXQuat.z));
 }
@@ -61,8 +61,7 @@ void RigidbodyComponent::OnTransformUpdated(Transform* _transform)
 {
 	if (m_isKinematic)
 	{
-		PxTransform newPose = PxTransform()
-		m_staticActor->setGlobalPose()
+
 	}
 	else
 	{

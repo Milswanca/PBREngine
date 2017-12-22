@@ -50,7 +50,7 @@ void StaticMesh::SetDefaultMaterial(unsigned int index, Material* material)
 	m_subMeshes[index]->defaultMaterial = material;
 }
 
-void StaticMesh::AddSubmesh(std::vector<glm::vec3> verts, std::vector<glm::vec2> uvs, std::vector<glm::vec3> normals, Material* defaultMat)
+void StaticMesh::AddSubmesh(std::vector<Vector3> verts, std::vector<glm::vec2> uvs, std::vector<Vector3> normals, Material* defaultMat)
 {
 	if (!defaultMat)
 	{
@@ -94,8 +94,8 @@ void StaticMesh::Deserialize(std::vector<struct SerializedData> _fromData)
 
 	for (int i = 0; i < numMeshes; ++i)
 	{
-		std::vector<glm::vec3> pos = Serializer::DeserializeArray<glm::vec3>(_fromData[1 + (3 * i) + 0]);
-		std::vector<glm::vec3> nor = Serializer::DeserializeArray<glm::vec3>(_fromData[1 + (3 * i) + 1]);
+		std::vector<Vector3> pos = Serializer::DeserializeArray<Vector3>(_fromData[1 + (3 * i) + 0]);
+		std::vector<Vector3> nor = Serializer::DeserializeArray<Vector3>(_fromData[1 + (3 * i) + 1]);
 		std::vector<glm::vec2> uvs = Serializer::DeserializeArray<glm::vec2>(_fromData[1 + (3 * i) + 2]);
 
 		AddSubmesh(pos, uvs, nor, AssetManager::CreateDefaultMaterial(EMaterialType::MT_PBR));

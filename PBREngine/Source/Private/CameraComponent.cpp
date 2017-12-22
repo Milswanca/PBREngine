@@ -8,7 +8,7 @@ CameraComponent::CameraComponent(ObjectInitData OI) : WorldComponent(OI)
 	m_nearClip = 0.1f;
 	m_farClip = 10000.0f;
 
-	LookAt(GetWorldLocation() + (GetForwardVector() * 3.0f), glm::vec3(0, 1, 0));
+	LookAt(GetWorldLocation() + (GetForwardVector() * 3.0f), Vector3(0, 1, 0));
 	SetPerspective(m_aspectRatio, m_fieldOfView, m_nearClip, m_farClip);
 }
 
@@ -25,10 +25,10 @@ void CameraComponent::Tick(float deltaTime)
 {
 	ComponentBase::Tick(deltaTime);
 
-	LookAt(GetWorldLocation() + (GetForwardVector() * 3.0f), glm::vec3(0, 1, 0));
+	LookAt(GetWorldLocation() + (GetForwardVector() * 3.0f), Vector3(0, 1, 0));
 }
 
-void CameraComponent::LookAt(glm::vec3 location, glm::vec3 up)
+void CameraComponent::LookAt(Vector3 location, Vector3 up)
 {
 	m_view = glm::lookAt(GetWorldLocation(), location, up);
 	UpdateProjectionView();

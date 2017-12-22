@@ -161,7 +161,7 @@ void Material::SetIntValue(const char* Name, int Value)
 	UnBind();
 }
 
-void Material::SetVector3Value(const char* Name, glm::vec3 Value)
+void Material::SetVector3Value(const char* Name, Vector3 Value)
 {
 	Bind();
 

@@ -157,6 +157,9 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Private\Math\Mat3.cpp" />
+    <ClCompile Include="Source\Private\Math\Mat4.cpp" />
+    <ClCompile Include="Source\Private\Math\Quat.cpp" />
     <ClCompile Include="Source\Private\Box.cpp" />
     <ClCompile Include="Source\Private\BoxComponent.cpp" />
     <ClCompile Include="Source\Private\RigidbodyComponent.cpp" />
@@ -200,9 +203,14 @@
     <ClCompile Include="Source\Private\Texture.cpp" />
     <ClCompile Include="Source\Private\SystemBase.cpp" />
     <ClCompile Include="Source\Private\UniformBufferObject.cpp" />
-    <ClCompile Include="Source\Private\Vector3.cpp" />
+    <ClCompile Include="Source\Private\Math\Vector3.cpp" />
+    <ClCompile Include="Source\Private\Math\Vector2.cpp" />
+    <ClCompile Include="Source\Private\Math\Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Public\Math\Mat3.h" />
+    <ClInclude Include="Source\Public\Math\Mat4.h" />
+    <ClInclude Include="Source\Public\Math\Quat.h" />
     <ClInclude Include="Source\Public\Box.h" />
     <ClInclude Include="Source\Public\BoxComponent.h" />
     <ClInclude Include="Source\Public\RigidbodyComponent.h" />
@@ -248,7 +256,9 @@
     <ClInclude Include="Source\Public\Texture.h" />
     <ClInclude Include="Source\Public\SystemBase.h" />
     <ClInclude Include="Source\Public\UniformBufferObject.h" />
-    <ClInclude Include="Source\Public\Vector3.h" />
+    <ClInclude Include="Source\Public\Math\Vector3.h" />
+    <ClInclude Include="Source\Public\Math\Vector2.h" />
+    <ClInclude Include="Source\Public\Math\Vector4.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\colorLit.frag" />
