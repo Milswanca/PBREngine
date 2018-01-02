@@ -37,10 +37,3 @@
 #include "World.h"
 #include "WorldComponent.h"
 #include "WorldObject.h"
-
-#include "Math/Vector2.h"
-#include "Math/Vector3.h"
-#include "Math/Vector4.h"
-#include "Math/Mat3.h"
-#include "Math/Mat4.h"
-#include "Math/Quat.h"

@@ -1,4 +1,6 @@
 #pragma once
+using namespace std;
+
 #include "Glew\glew.h"
 #include "GLFW\glfw3.h"
 
@@ -9,10 +11,12 @@
 #include "AntTweak\AntTweakBar.h"
 #include "imgui\imgui.h"
 
+#include "PhysX\PxPhysicsAPI.h"
+using namespace physx;
+
+#include "Math\Math.h"
 #include "Delegate.h"
 #include "DataTypes.h"
-
-#include "PhysX\PxPhysicsAPI.h"
 
 #include <time.h>
 #include <algorithm>
@@ -30,6 +34,3 @@
 #include <sstream>
 #include <sys/types.h>
 #include <sys/stat.h>
-
-using namespace std;
-using namespace physx;

@@ -36,7 +36,7 @@ World::World(ObjectInitData OI) : ObjectBase(OI)
 	SpawnWorldObject<DirectionalLight>();
 
 	SpawnWorldObject<Camera>();
-	for (int i = 0; i < 10; ++i)
+	for (int i = 0; i < 50; ++i)
 	{
 		Box* box = SpawnWorldObject<Box>();
 		box->GetStaticMesh()->GetMaterial(0)->SetTextureValue("MapIrradiance", GetSkybox()->GetIrradianceMap());

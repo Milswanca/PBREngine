@@ -5,15 +5,18 @@ std::vector<DebugDrawData> DebugDraw::m_drawData;
 
 void DebugDraw::Line(Vector3 _start, Vector3 _end, glm::vec4 _colour)
 {
+#if DRAW_DEBUG
 	std::vector<Vector3> verts;
 	verts.push_back(_start);
 	verts.push_back(_end);
 
 	m_drawData.push_back(DebugDrawData(GL_LINES, verts, _colour));
+#endif
 }
 
 void DebugDraw::Render(glm::mat4 _projectionView)
 {
+#if DRAW_DEBUG
 	glMatrixMode(GL_PROJECTION);
 	glLoadMatrixf(&_projectionView[0][0]);
 	int lastProgram; glGetIntegerv(GL_PROGRAM, &lastProgram);
@@ -47,4 +50,5 @@ void DebugDraw::Render(glm::mat4 _projectionView)
 	glDisableClientState(GL_COLOR_ARRAY);
 	glMatrixMode(GL_MODELVIEW);
 	glUseProgram(lastProgram);
+#endif
 }

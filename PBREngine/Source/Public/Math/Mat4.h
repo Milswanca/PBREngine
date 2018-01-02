@@ -1,10 +1,30 @@
 #pragma once
-class Mat4
+
+struct Vector4;
+
+struct Mat4
 {
 public:
 	Mat4();
+	Mat4(const glm::mat4& _from);
+	Mat4(const physx::PxMat44& _from);
+
+	Mat4(const float _vals[16]);
+
 	~Mat4();
 
-	float x1, y1, z1, w1, x2, y2, z2, w2, x3, y3, z3, w3, x4, y4, z4, w4;
+	Mat4 operator*(const Mat4& _other) const;
+	void operator*=(const Mat4& _other);
+
+	Mat4 operator/(const Mat4& _other) const;
+	void operator/=(const Mat4& _other);
+
+	operator glm::mat4() const;
+	operator physx::PxMat44() const;
+
+private:
+	Vector4 cols[4];
+
+	glm::mat4 ThisGLM() const;
 };
 

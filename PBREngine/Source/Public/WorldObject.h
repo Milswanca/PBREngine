@@ -67,14 +67,14 @@ public:
 	void SetRotation(glm::quat rotation);
 	void SetScale(glm::vec3 scale);
 
-	glm::vec3 GetLocation();
+	Vector3 GetLocation();
 	glm::quat GetRotation();
-	glm::vec3 GetScale();
+	Vector3 GetScale();
 	class Transform* GetTransform() const;
 
-	glm::vec3 GetRightVector();
-	glm::vec3 GetUpVector();
-	glm::vec3 GetForwardVector();
+	Vector3 GetRightVector();
+	Vector3 GetUpVector();
+	Vector3 GetForwardVector();
 #pragma endregion
 };
 

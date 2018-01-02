@@ -30,7 +30,7 @@ void CameraComponent::Tick(float deltaTime)
 
 void CameraComponent::LookAt(Vector3 location, Vector3 up)
 {
-	m_view = glm::lookAt(GetWorldLocation(), location, up);
+	m_view = Math::LookAt(GetWorldLocation(), location, up);
 	UpdateProjectionView();
 }
 

@@ -107,6 +107,8 @@ void EngineBase::EngineLoop()
 		glfwPollEvents();
 		ImGui_ImplGlfw_NewFrame();
 
+		printf("%f\n", 1.0f / deltaTime + 0.0001f);
+
 		Input::PreProcess();
 
 		glClearColor(0.1f, 0.1f, 0.2f, 1);

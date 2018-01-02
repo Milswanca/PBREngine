@@ -20,7 +20,7 @@ public:
 	void SetMat4Value(const char* Name, glm::mat4 Value);
 	void SetFloatValue(const char* Name, float Value);
 	void SetIntValue(const char* Name, int Value);
-	void SetVector3Value(const char* Name, glm::vec3 Value);
+	void SetVector3Value(const char* Name, Vector3 Value);
 	void SetTextureValue(const char* Name, class Texture* Value);
 	void SetUniformBlockValue(const char* Name, class UniformBufferObject* Value);
 
@@ -35,7 +35,7 @@ public:
 protected:
 	std::map<const char*, int> m_intValues;
 	std::map<const char*, float> m_floatValues;
-	std::map<const char*, glm::vec3> m_vec3Values;
+	std::map<const char*, Vector3> m_vec3Values;
 	std::map<const char*, glm::mat4> m_mat4Values;
 	std::map<const char*, class Texture*> m_textureValues;
 	std::map<const char*, class UniformBufferObject*> m_uniformBlockValues;

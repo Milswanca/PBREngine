@@ -1,4 +1,5 @@
 #pragma once
+
 enum EShaderType
 {
 	ST_Unknown,
@@ -90,30 +91,30 @@ struct Vertex
 
 	}
 
-	Vertex(glm::vec3 _position)
+	Vertex(Vector3 _position)
 	{
 		Position = _position;
 	}
 
-	Vertex(glm::vec3 _position, glm::vec4 _colour)
+	Vertex(Vector3 _position, glm::vec4 _colour)
 	{
 		Position = _position;
 		Colour = _colour;
 	}
 
-	glm::vec3 Position;
+	Vector3 Position;
 	glm::vec4 Colour;
 	glm::vec2 UV;
-	glm::vec3 Normal;
-	glm::vec3 Tangent;
-	glm::vec3 Bitangent;
+	Vector3 Normal;
+	Vector3 Tangent;
+	Vector3 Bitangent;
 
 	static const GLint PositionOffset	= 0;
-	static const GLint ColourOffset		= PositionOffset + sizeof(glm::vec3);
+	static const GLint ColourOffset		= PositionOffset + sizeof(Vector3);
 	static const GLint UVOffset			= ColourOffset + sizeof(glm::vec4);
 	static const GLint NormalOffset		= UVOffset + sizeof(glm::vec2);
-	static const GLint TangentOffset	= NormalOffset + sizeof(glm::vec3);
-	static const GLint BitangentOffset	= TangentOffset + sizeof(glm::vec3);
+	static const GLint TangentOffset	= NormalOffset + sizeof(Vector3);
+	static const GLint BitangentOffset	= TangentOffset + sizeof(Vector3);
 
 	bool operator==(Vertex const &rhs) const;
 	bool operator<(Vertex const &rhs) const;

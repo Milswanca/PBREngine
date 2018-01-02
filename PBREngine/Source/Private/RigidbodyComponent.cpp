@@ -17,7 +17,7 @@ void RigidbodyComponent::Tick(float _deltaTime)
 {
 	WorldComponent::Tick(_deltaTime);
 
-	PxVec3 physXVec = m_rigidActor->getGlobalPose().p;
+	Vector3 physXVec = Vector3(m_rigidActor->getGlobalPose().p);
 	SetWorldLocation(physXVec);
 	PxQuat physXQuat = m_rigidActor->getGlobalPose().q;
 	SetLocalRotation(glm::quat(physXQuat.w, physXQuat.x, physXQuat.y, physXQuat.z));

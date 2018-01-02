@@ -44,7 +44,7 @@ StaticMesh* AssetLoader<StaticMesh>::LoadStaticMesh(std::string file, bool bReca
 			}
 
 			Vector3 vertex;
-			sscanf(line.c_str(), "v %f %f %f\n", &vertex.x, &vertex.y, &vertex.z);
+			sscanf(line.c_str(), "v %f %f %f\n", &vertex.X, &vertex.Y, &vertex.Z);
 			verts.push_back(vertex);
 
 			continue;
@@ -70,7 +70,7 @@ StaticMesh* AssetLoader<StaticMesh>::LoadStaticMesh(std::string file, bool bReca
 			}
 
 			Vector3 normal;
-			sscanf(line.c_str(), "vn %f %f %f\n", &normal.x, &normal.y, &normal.z);
+			sscanf(line.c_str(), "vn %f %f %f\n", &normal.X, &normal.Y, &normal.Z);
 			normals.push_back(normal);
 
 			continue;

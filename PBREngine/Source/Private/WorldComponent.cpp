@@ -98,7 +98,7 @@ void WorldComponent::SetWorldLocation(Vector3 location)
 	GetTransform()->SetWorldLocation(location);
 }
 
-glm::vec3 WorldComponent::GetLocalLocation()
+Vector3 WorldComponent::GetLocalLocation()
 {
 	return GetTransform()->GetLocalLocation();
 }
@@ -108,7 +108,7 @@ glm::quat WorldComponent::GetLocalRotation()
 	return GetTransform()->GetLocalRotation();
 }
 
-glm::vec3 WorldComponent::GetLocalScale()
+Vector3 WorldComponent::GetLocalScale()
 {
 	return GetTransform()->GetLocalScale();
 }
@@ -118,7 +118,7 @@ glm::mat4 WorldComponent::GetLocalMatrix() const
 	return GetTransform()->GetLocalMatrix();
 }
 
-glm::vec3 WorldComponent::GetWorldLocation()
+Vector3 WorldComponent::GetWorldLocation()
 {
 	return GetTransform()->GetWorldLocation();
 }
@@ -128,7 +128,7 @@ glm::quat WorldComponent::GetWorldRotation()
 	return GetTransform()->GetWorldRotation();
 }
 
-glm::vec3 WorldComponent::GetWorldScale()
+Vector3 WorldComponent::GetWorldScale()
 {
 	return GetTransform()->GetWorldScale();
 }
@@ -138,17 +138,17 @@ glm::mat4 WorldComponent::GetWorldMatrix() const
 	return GetTransform()->GetWorldMatrix();
 }
 
-glm::vec3 WorldComponent::GetRightVector()
+Vector3 WorldComponent::GetRightVector()
 {
 	return GetTransform()->GetRightVector();
 }
 
-glm::vec3 WorldComponent::GetUpVector()
+Vector3 WorldComponent::GetUpVector()
 {
 	return GetTransform()->GetUpVector();
 }
 
-glm::vec3 WorldComponent::GetForwardVector()
+Vector3 WorldComponent::GetForwardVector()
 {
 	return GetTransform()->GetForwardVector();
 }

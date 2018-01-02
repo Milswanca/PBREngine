@@ -69,7 +69,7 @@ void WorldObject::SetScale(glm::vec3 scale)
 	GetRootComponent()->SetLocalScale(scale);
 }
 
-glm::vec3 WorldObject::GetLocation()
+Vector3 WorldObject::GetLocation()
 {
 	return GetRootComponent()->GetLocalLocation();
 }
@@ -79,7 +79,7 @@ glm::quat WorldObject::GetRotation()
 	return GetRootComponent()->GetLocalRotation();
 }
 
-glm::vec3 WorldObject::GetScale()
+Vector3 WorldObject::GetScale()
 {
 	return GetRootComponent()->GetLocalScale();
 }
@@ -89,17 +89,17 @@ Transform* WorldObject::GetTransform() const
 	return GetRootComponent()->GetTransform();
 }
 
-glm::vec3 WorldObject::GetRightVector()
+Vector3 WorldObject::GetRightVector()
 {
 	return GetRootComponent()->GetRightVector();
 }
 
-glm::vec3 WorldObject::GetUpVector()
+Vector3 WorldObject::GetUpVector()
 {
 	return GetRootComponent()->GetUpVector();
 }
 
-glm::vec3 WorldObject::GetForwardVector()
+Vector3 WorldObject::GetForwardVector()
 {
 	return GetRootComponent()->GetForwardVector();
 }

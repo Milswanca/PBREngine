@@ -4,7 +4,7 @@
 struct SubMeshShape
 {
 public:
-	SubMeshShape(std::vector<glm::vec3> verts, std::vector<glm::vec2> uvs, std::vector<glm::vec3> normals, class Material* material)
+	SubMeshShape(std::vector<Vector3> verts, std::vector<glm::vec2> uvs, std::vector<Vector3> normals, class Material* material)
 	{
 		m_positions = verts;
 		m_UVs = uvs;
@@ -29,11 +29,11 @@ private:
 	void RebufferData();
 
 	//Unindexed/unwrapped data
-	std::vector<glm::vec3> m_positions;
+	std::vector<Vector3> m_positions;
 	std::vector<glm::vec2> m_UVs;
-	std::vector<glm::vec3> m_normals;
-	std::vector<glm::vec3> m_tangents;
-	std::vector<glm::vec3> m_bitangents;
+	std::vector<Vector3> m_normals;
+	std::vector<Vector3> m_tangents;
+	std::vector<Vector3> m_bitangents;
 
 	friend class StaticMesh;
 };							  
@@ -49,7 +49,7 @@ public:
 	Material* GetDefaultMaterial(unsigned int index);
 	void SetDefaultMaterial(unsigned int index, Material* material);
 
-	void AddSubmesh(std::vector<glm::vec3> verts, std::vector<glm::vec2> uvs, std::vector<glm::vec3> normals, Material* defaultMat = nullptr);
+	void AddSubmesh(std::vector<Vector3> verts, std::vector<glm::vec2> uvs, std::vector<Vector3> normals, Material* defaultMat = nullptr);
 	void GetSubmeshes(std::vector<SubMeshShape*>& inSubmeshes);
 	unsigned int GetSubmeshCount();
 

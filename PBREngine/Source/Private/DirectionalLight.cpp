@@ -35,7 +35,7 @@ void DirectionalLight::SetDirection(Vector3 _direction)
 		_direction = Vector3(1, 0, 0);
 	}
 
-	m_direction = glm::normalize(_direction);
+	m_direction = _direction.Normalized();
 }
 
 
@@ -56,7 +56,7 @@ glm::mat4 DirectionalLight::GetLightSpaceProjection()
 {
 	float near_plane = 0.1f, far_plane = 100.0f;
 	glm::mat4 lightProjection = glm::ortho(-300.0f, 300.0f, -300.0f, 300.0f, near_plane, far_plane);
-	glm::mat4 lightView = glm::lookAt(GetDirection() * 30.0f,
+	glm::mat4 lightView = Math::LookAt(GetDirection() * 30.0f,
 		Vector3(0.0f, 0.0f, 0.0f),
 		Vector3(0.0f, 1.0f, 0.0f));
 

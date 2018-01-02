@@ -86,6 +86,7 @@ Vector3 Light::GetColour()
 { 
 	return m_colour; 
 }
+
 void Light::SetColour(Vector3 _colour)
 { 
 	m_colour = _colour; 

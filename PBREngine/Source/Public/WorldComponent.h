@@ -32,13 +32,13 @@ private:
 
 #pragma region Transform Shortcuts
 public:
-	void Rotate(float angle, glm::vec3 axis);
+	void Rotate(float angle, Vector3 axis);
 
-	void SetLocalLocation(glm::vec3 location);
+	void SetLocalLocation(Vector3 location);
 	void SetLocalRotation(glm::quat rotation);
-	void SetLocalScale(glm::vec3 scale);
+	void SetLocalScale(Vector3 scale);
 
-	void SetWorldLocation(glm::vec3 location);
+	void SetWorldLocation(Vector3 location);
 
 	Vector3 GetLocalLocation();
 	glm::quat GetLocalRotation();

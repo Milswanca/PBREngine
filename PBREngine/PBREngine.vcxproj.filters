@@ -317,6 +317,9 @@
     <ClInclude Include="Source\Public\Math\Mat3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Public\Math\Math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\tutorial2.frag" />
