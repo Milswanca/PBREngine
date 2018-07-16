@@ -19,7 +19,6 @@ EngineBase::~EngineBase()
 	ImGui_ImplGlfw_Shutdown();
 
 	m_systems[ESystemType::ST_Render]->Deinit();
-	m_systems[ESystemType::ST_Physics]->Deinit();
 
 	//Destroy all objects
 	for (int i = 0; i < m_allObjects.size(); ++i)
@@ -63,10 +62,6 @@ int EngineBase::Init()
 	m_renderManager = CreateObject<RenderManager>(this);
 	m_systems[ESystemType::ST_Render] = m_renderManager;
 	m_systems[ESystemType::ST_Render]->Init();
-
-	m_physicsManager = CreateObject<PhysicsManager>(this);
-	m_systems[ESystemType::ST_Physics] = m_physicsManager;
-	m_systems[ESystemType::ST_Physics]->Init();
 	
 	CurrentWorld = CreateObject<World>(this);
 
@@ -124,7 +119,6 @@ void EngineBase::EngineLoop()
 
 		//m_systems[ESystemType::ST_None]->Update(deltaTime);
 		CurrentWorld->Tick(deltaTime);
-		m_systems[ESystemType::ST_Physics]->Update(deltaTime);
 		m_systems[ESystemType::ST_Render]->Update(deltaTime);
 
 		DebugDraw::Render(GetGameInstance()->MainCamera->GetCameraComponent()->GetProjectionView());
@@ -146,11 +140,6 @@ void EngineBase::Shutdown()
 RenderManager* EngineBase::GetRenderSystem()
 {
 	return m_renderManager;
-}
-
-PhysicsManager* EngineBase::GetPhysicsSystem()
-{
-	return m_physicsManager;
 }
 
 GLFWwindow* EngineBase::GetCurrentWindow() const

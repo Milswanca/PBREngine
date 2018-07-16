@@ -3,10 +3,10 @@
 
 std::vector<DebugDrawData> DebugDraw::m_drawData;
 
-void DebugDraw::Line(Vector3 _start, Vector3 _end, glm::vec4 _colour)
+void DebugDraw::Line(glm::vec3 _start, glm::vec3 _end, glm::vec4 _colour)
 {
 #if DRAW_DEBUG
-	std::vector<Vector3> verts;
+	std::vector<glm::vec3> verts;
 	verts.push_back(_start);
 	verts.push_back(_end);
 
@@ -28,7 +28,7 @@ void DebugDraw::Render(glm::mat4 _projectionView)
 	for (DebugDrawData data : m_drawData)
 	{
 		GLenum drawType = data.GetDrawType();
-		std::vector<Vector3> verts;
+		std::vector<glm::vec3> verts;
 		data.GetVerts(verts);
 
 		std::vector<glm::vec4> colours;

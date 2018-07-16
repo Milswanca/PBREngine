@@ -6,26 +6,26 @@ public:
 	Transform(glm::mat4 inMatrix);
 	~Transform();
 
-	void Rotate(float angle, Vector3 axis);
+	void Rotate(float angle, glm::vec3 axis);
 
-	void SetLocalLocation(Vector3 location);
+	void SetLocalLocation(glm::vec3 location);
 	void SetLocalRotation(glm::quat rotation);
-	void SetLocalScale(Vector3 scale);
+	void SetLocalScale(glm::vec3 scale);
 
-	void SetWorldLocation(Vector3 location);
+	void SetWorldLocation(glm::vec3 location);
 
-	Vector3 GetLocalLocation();
+	glm::vec3 GetLocalLocation();
 	glm::quat GetLocalRotation();
-	Vector3 GetLocalScale();
+	glm::vec3 GetLocalScale();
 	glm::mat4 GetLocalMatrix() const;
-	Vector3 GetWorldLocation();
+	glm::vec3 GetWorldLocation();
 	glm::quat GetWorldRotation();
-	Vector3 GetWorldScale();
+	glm::vec3 GetWorldScale();
 	glm::mat4 GetWorldMatrix() const;
 
-	Vector3 GetRightVector();
-	Vector3 GetUpVector();
-	Vector3 GetForwardVector();
+	glm::vec3 GetRightVector();
+	glm::vec3 GetUpVector();
+	glm::vec3 GetForwardVector();
 
 	void SetParent(Transform* _parent);
 	void RegisterChild(Transform* _child);

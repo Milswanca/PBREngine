@@ -15,13 +15,13 @@ Transform::~Transform()
 {
 }
 
-void Transform::Rotate(float angle, Vector3 axis)
+void Transform::Rotate(float angle, glm::vec3 axis)
 {
 	m_rotationMatrix *= glm::rotate(angle, (glm::vec3)axis);
 	UpdateTransform();
 }
 
-void Transform::SetLocalLocation(Vector3 location)
+void Transform::SetLocalLocation(glm::vec3 location)
 {
 	m_locationMatrix = glm::translate((glm::vec3)location);
 	UpdateTransform();
@@ -33,21 +33,21 @@ void Transform::SetLocalRotation(glm::quat rotation)
 	UpdateTransform();
 }
 
-void Transform::SetLocalScale(Vector3 scale)
+void Transform::SetLocalScale(glm::vec3 scale)
 {
 	m_scaleMatrix = glm::scale((glm::vec3)scale);
 	UpdateTransform();
 }
 
-void Transform::SetWorldLocation(Vector3 location)
+void Transform::SetWorldLocation(glm::vec3 location)
 {
-	Vector3 worldLocation = GetWorldLocation();
-	Vector3 deltaLocation = location - worldLocation;
+	glm::vec3 worldLocation = GetWorldLocation();
+	glm::vec3 deltaLocation = location - worldLocation;
 
 	SetLocalLocation(GetLocalLocation() + deltaLocation);
 }
 
-Vector3 Transform::GetLocalLocation()
+glm::vec3 Transform::GetLocalLocation()
 {
 	glm::mat4 transformation;
 	glm::vec3 scale;
@@ -58,7 +58,7 @@ Vector3 Transform::GetLocalLocation()
 
 	glm::decompose(m_localMatrix, scale, rotation, translation, skew, perspective);
 
-	return Vector3(translation);
+	return glm::vec3(translation);
 }
 
 glm::quat Transform::GetLocalRotation()
@@ -77,7 +77,7 @@ glm::quat Transform::GetLocalRotation()
 	return rotation;
 }
 
-Vector3 Transform::GetLocalScale()
+glm::vec3 Transform::GetLocalScale()
 {
 	glm::mat4 transformation;
 	glm::vec3 scale;
@@ -88,7 +88,7 @@ Vector3 Transform::GetLocalScale()
 
 	glm::decompose(m_localMatrix, scale, rotation, translation, skew, perspective);
 
-	return Vector3(scale);
+	return glm::vec3(scale);
 }
 
 glm::mat4 Transform::GetLocalMatrix() const
@@ -96,7 +96,7 @@ glm::mat4 Transform::GetLocalMatrix() const
 	return m_localMatrix;
 }
 
-Vector3 Transform::GetWorldLocation()
+glm::vec3 Transform::GetWorldLocation()
 {
 	glm::mat4 transformation;
 	glm::vec3 scale;
@@ -107,7 +107,7 @@ Vector3 Transform::GetWorldLocation()
 
 	glm::decompose(m_worldMatrix, scale, rotation, translation, skew, perspective);
 
-	return Vector3(translation);
+	return glm::vec3(translation);
 }
 
 glm::quat Transform::GetWorldRotation()
@@ -124,7 +124,7 @@ glm::quat Transform::GetWorldRotation()
 	return rotation;
 }
 
-Vector3 Transform::GetWorldScale()
+glm::vec3 Transform::GetWorldScale()
 {
 	glm::mat4 transformation;
 	glm::vec3 scale;
@@ -135,7 +135,7 @@ Vector3 Transform::GetWorldScale()
 
 	glm::decompose(m_worldMatrix, scale, rotation, translation, skew, perspective);
 
-	return Vector3(scale);
+	return glm::vec3(scale);
 }
 
 glm::mat4 Transform::GetWorldMatrix() const
@@ -143,19 +143,19 @@ glm::mat4 Transform::GetWorldMatrix() const
 	return m_worldMatrix;
 }
 
-Vector3 Transform::GetRightVector()
+glm::vec3 Transform::GetRightVector()
 {
-	return Vector3(glm::normalize(m_worldMatrix[0]));
+	return glm::vec3(glm::normalize(m_worldMatrix[0]));
 }
 
-Vector3 Transform::GetUpVector()
+glm::vec3 Transform::GetUpVector()
 {
-	return Vector3(glm::normalize(m_worldMatrix[1]));
+	return glm::vec3(glm::normalize(m_worldMatrix[1]));
 }
 
-Vector3 Transform::GetForwardVector()
+glm::vec3 Transform::GetForwardVector()
 {
-	return Vector3(glm::normalize(m_worldMatrix[2]));
+	return glm::vec3(glm::normalize(m_worldMatrix[2]));
 }
 
 void Transform::SetParent(Transform* _parent)

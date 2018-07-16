@@ -19,17 +19,6 @@ void TriangleDrawer::Begin()
 	m_lightRoot = AddComponent<WorldComponent>();
 	m_lightRoot->SetupAttachment(GetRootComponent());
 
-	BoxComponent* box = AddComponent<BoxComponent>();
-	box->SetupAttachment(GetRootComponent());
-
-	m_rigidBody = AddComponent<RigidbodyComponent>();
-	m_rigidBody->SetupAttachment(GetRootComponent());
-	m_rigidBody->SetKinematic(false);
-
-	m_rigidBody = AddComponent<RigidbodyComponent>();
-	m_rigidBody->SetupAttachment(GetRootComponent());
-	m_rigidBody->SetKinematic(false);
-
 	SpawnLight();
 
 	m_skyFiles.push_back("Assets/Skyboxes/EquirectangularSkys/Alexs_Apt_8k.jpg");
@@ -66,7 +55,7 @@ void TriangleDrawer::Begin()
 	}
 
 	meshComponent = AddComponent<StaticMeshComponent>();
-	meshComponent->SetupAttachment(m_rigidBody);
+	meshComponent->SetupAttachment(GetRootComponent());
 	//meshComponent->SetStaticMesh(AssetManager::LoadAsset<StaticMesh>("Assets/StaticMeshes/Render_ball.obj", false));
 	//meshComp->RecalculateNormals();
 	//meshComponent->SetRelativeLocation(glm::vec3(0, 3, 0));

@@ -12,8 +12,8 @@ public:
 
 	virtual void AddDisplayProps() override;
 
-	void SetDirection(Vector3 _direction);
-	Vector3 GetDirection() const;
+	void SetDirection(glm::vec3 _direction);
+	glm::vec3 GetDirection() const;
 
 	glm::mat4 GetLightSpaceProjection();
 
@@ -24,6 +24,6 @@ public:
 	virtual LightData GetLightData() override;
 
 private:
-	Vector3 m_direction;
+	glm::vec3 m_direction;
 };
 

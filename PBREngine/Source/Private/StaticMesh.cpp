@@ -50,7 +50,7 @@ void StaticMesh::SetDefaultMaterial(unsigned int index, Material* material)
 	m_subMeshes[index]->defaultMaterial = material;
 }
 
-void StaticMesh::AddSubmesh(std::vector<Vector3> verts, std::vector<glm::vec2> uvs, std::vector<Vector3> normals, Material* defaultMat)
+void StaticMesh::AddSubmesh(std::vector<glm::vec3> verts, std::vector<glm::vec2> uvs, std::vector<glm::vec3> normals, Material* defaultMat)
 {
 	if (!defaultMat)
 	{
@@ -94,8 +94,8 @@ void StaticMesh::Deserialize(std::vector<struct SerializedData> _fromData)
 
 	for (int i = 0; i < numMeshes; ++i)
 	{
-		std::vector<Vector3> pos = Serializer::DeserializeArray<Vector3>(_fromData[1 + (3 * i) + 0]);
-		std::vector<Vector3> nor = Serializer::DeserializeArray<Vector3>(_fromData[1 + (3 * i) + 1]);
+		std::vector<glm::vec3> pos = Serializer::DeserializeArray<glm::vec3>(_fromData[1 + (3 * i) + 0]);
+		std::vector<glm::vec3> nor = Serializer::DeserializeArray<glm::vec3>(_fromData[1 + (3 * i) + 1]);
 		std::vector<glm::vec2> uvs = Serializer::DeserializeArray<glm::vec2>(_fromData[1 + (3 * i) + 2]);
 
 		AddSubmesh(pos, uvs, nor, AssetManager::CreateDefaultMaterial(EMaterialType::MT_PBR));
@@ -115,7 +115,7 @@ void SubMeshShape::RecalculateNormals()
 		//Here I create a new normal for each face and add its value to each vertex in it.
 		for (unsigned int i = 0; i < m_positions.size(); i += 3)
 		{
-			Vector3 faceNormal = Vector3::Cross(m_positions[i + 1] - m_positions[i], m_positions[i + 2] - m_positions[i]);
+			glm::vec3 faceNormal = glm::cross(m_positions[i + 1] - m_positions[i], m_positions[i + 2] - m_positions[i]);
 			m_normals[i] += faceNormal;
 			m_normals[i + 1] += faceNormal;
 			m_normals[i + 2] += faceNormal;
@@ -124,7 +124,7 @@ void SubMeshShape::RecalculateNormals()
 		//Finally, I normalize all of the normals.
 		for (int i = 0; i < m_normals.size(); ++i)
 		{
-			m_normals[i] = m_normals[i].Normalized();
+			m_normals[i] = glm::normalize(m_normals[i]);
 		}
 	}
 }
@@ -134,9 +134,9 @@ void SubMeshShape::RecalculateTangents()
 	for (int i = 0; i < m_positions.size(); i+=3)
 	{
 		// Shortcuts for vertices
-		Vector3& v0 = m_positions[i + 0];
-		Vector3& v1 = m_positions[i + 1];
-		Vector3& v2 = m_positions[i + 2];
+		glm::vec3& v0 = m_positions[i + 0];
+		glm::vec3& v1 = m_positions[i + 1];
+		glm::vec3& v2 = m_positions[i + 2];
 
 		// Shortcuts for UVs
 		glm::vec2 & uv0 = m_UVs[i + 0];
@@ -144,8 +144,8 @@ void SubMeshShape::RecalculateTangents()
 		glm::vec2 & uv2 = m_UVs[i + 2];
 
 		// Edges of the triangle : postion delta
-		Vector3 deltaPos1 = v1 - v0;
-		Vector3 deltaPos2 = v2 - v0;
+		glm::vec3 deltaPos1 = v1 - v0;
+		glm::vec3 deltaPos2 = v2 - v0;
 
 		// UV delta
 		glm::vec2 deltaUV1 = uv1 - uv0;
@@ -153,8 +153,8 @@ void SubMeshShape::RecalculateTangents()
 
 		//Calculate tangent/bitangent
 		float r = 1.0f / (deltaUV1.x * deltaUV2.y - deltaUV1.y * deltaUV2.x);
-		Vector3 tangent = (deltaPos1 * deltaUV2.y - deltaPos2 * deltaUV1.y)*r;
-		Vector3 bitangent = (deltaPos2 * deltaUV1.x - deltaPos1 * deltaUV2.x)*r;
+		glm::vec3 tangent = (deltaPos1 * deltaUV2.y - deltaPos2 * deltaUV1.y)*r;
+		glm::vec3 bitangent = (deltaPos2 * deltaUV1.x - deltaPos1 * deltaUV2.x)*r;
 
 		m_tangents.push_back(tangent);
 		m_tangents.push_back(tangent);
@@ -167,9 +167,9 @@ void SubMeshShape::RecalculateTangents()
 
 size_t vertex_hash(const Vertex & v)
 {
-	return std::hash<float>()(v.Position.X) ^ (1 << std::hash<float>()(v.Position.Y)) ^ (std::hash<float>()(v.Position.Z))
+	return std::hash<float>()(v.Position.x) ^ (1 << std::hash<float>()(v.Position.y)) ^ (std::hash<float>()(v.Position.z))
 		^ (std::hash<float>()(v.UV.x)) ^ (std::hash<float>()(v.UV.y))
-		^ std::hash<float>()(v.Normal.X) ^ std::hash<float>()(v.Normal.Y) ^ std::hash<float>()(v.Normal.Z);
+		^ std::hash<float>()(v.Normal.x) ^ std::hash<float>()(v.Normal.y) ^ std::hash<float>()(v.Normal.z);
 }
 
 void SubMeshShape::RecalculateIndexedVerts()

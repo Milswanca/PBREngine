@@ -19,7 +19,6 @@ public:
 	time_t LastTime;
 
 	class RenderManager* GetRenderSystem();
-	class PhysicsManager* GetPhysicsSystem();
 	class GLFWwindow* GetCurrentWindow() const;
 
 	template<typename T>
@@ -53,7 +52,6 @@ public:
 private:
 	std::map<ESystemType, class SystemBase*> m_systems;
 	RenderManager* m_renderManager = nullptr;
-	PhysicsManager* m_physicsManager = nullptr;
 	std::vector<ObjectBase*> m_allObjects;
 
 	bool bWantsToClose;

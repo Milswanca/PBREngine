@@ -10,7 +10,7 @@ public:
 	virtual void Begin() override;
 	virtual void Tick(float deltaTime) override;
 
-	void LookAt(Vector3 location, Vector3 up = Vector3(0, 1, 0));
+	void LookAt(glm::vec3 location, glm::vec3 up = glm::vec3(0, 1, 0));
 	void SetPerspective(float AspectRatio, float FOV, float NearClip, float FarClip);
 
 	void UpdateProjectionView();

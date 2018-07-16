@@ -3,8 +3,8 @@
 
 DirectionalLight::DirectionalLight(ObjectInitData OI) : Light(OI)
 {
-	SetColour(Vector3(1, 1, 1));
-	SetDirection(Vector3(1, 1, 1));
+	SetColour(glm::vec3(1, 1, 1));
+	SetDirection(glm::vec3(1, 1, 1));
 }
 
 DirectionalLight::~DirectionalLight()
@@ -28,26 +28,26 @@ void DirectionalLight::SetShadowMaterialProperties()
 	shadowGenMaterial->SetMat4Value("LightSpaceMatrix", GetLightSpaceProjection());
 }
 
-void DirectionalLight::SetDirection(Vector3 _direction)
+void DirectionalLight::SetDirection(glm::vec3 _direction)
 {
-	if (_direction == Vector3(0, 0, 0))
+	if (_direction == glm::vec3(0, 0, 0))
 	{
-		_direction = Vector3(1, 0, 0);
+		_direction = glm::vec3(1, 0, 0);
 	}
 
-	m_direction = _direction.Normalized();
+	m_direction = glm::normalize(_direction);
 }
 
 
 void DirectionalLight::AddDisplayProps()
 {
-	Vector3 direction = m_direction;
+	glm::vec3 direction = m_direction;
 	Light::AddDisplayProps();
 	ImGui::SliderFloat3("Direction", &direction[0], -1, 1);
 	SetDirection(direction);
 }
 
-Vector3 DirectionalLight::GetDirection() const
+glm::vec3 DirectionalLight::GetDirection() const
 {
 	return m_direction;
 }
@@ -56,9 +56,9 @@ glm::mat4 DirectionalLight::GetLightSpaceProjection()
 {
 	float near_plane = 0.1f, far_plane = 100.0f;
 	glm::mat4 lightProjection = glm::ortho(-300.0f, 300.0f, -300.0f, 300.0f, near_plane, far_plane);
-	glm::mat4 lightView = Math::LookAt(GetDirection() * 30.0f,
-		Vector3(0.0f, 0.0f, 0.0f),
-		Vector3(0.0f, 1.0f, 0.0f));
+	glm::mat4 lightView = glm::lookAt(GetDirection() * 30.0f,
+		glm::vec3(0.0f, 0.0f, 0.0f),
+		glm::vec3(0.0f, 1.0f, 0.0f));
 
 	glm::mat4 LightSpaceMatrix = lightProjection * lightView;
 

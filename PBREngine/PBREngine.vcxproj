@@ -22,7 +22,7 @@
     <ProjectGuid>{58E15CB1-CC69-4C5F-B6FB-658B8B56FA28}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PBREngine</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -157,13 +157,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Private\Math\Mat3.cpp" />
-    <ClCompile Include="Source\Private\Math\Mat4.cpp" />
-    <ClCompile Include="Source\Private\Math\Quat.cpp" />
-    <ClCompile Include="Source\Private\Box.cpp" />
-    <ClCompile Include="Source\Private\BoxComponent.cpp" />
-    <ClCompile Include="Source\Private\RigidbodyComponent.cpp" />
-    <ClCompile Include="Source\Private\PhysicsManager.cpp" />
     <ClCompile Include="Source\Private\Input.cpp" />
     <ClCompile Include="Source\Private\DebugDraw.cpp" />
     <ClCompile Include="Source\Private\DirectionalLight.cpp" />
@@ -203,19 +196,8 @@
     <ClCompile Include="Source\Private\Texture.cpp" />
     <ClCompile Include="Source\Private\SystemBase.cpp" />
     <ClCompile Include="Source\Private\UniformBufferObject.cpp" />
-    <ClCompile Include="Source\Private\Math\Vector3.cpp" />
-    <ClCompile Include="Source\Private\Math\Vector2.cpp" />
-    <ClCompile Include="Source\Private\Math\Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Public\Math\Mat3.h" />
-    <ClInclude Include="Source\Public\Math\Mat4.h" />
-    <ClInclude Include="Source\Public\Math\Math.h" />
-    <ClInclude Include="Source\Public\Math\Quat.h" />
-    <ClInclude Include="Source\Public\Box.h" />
-    <ClInclude Include="Source\Public\BoxComponent.h" />
-    <ClInclude Include="Source\Public\RigidbodyComponent.h" />
-    <ClInclude Include="Source\Public\PhysicsManager.h" />
     <ClInclude Include="Source\Public\Input.h" />
     <ClInclude Include="Source\Public\DebugDraw.h" />
     <ClInclude Include="Source\Public\DirectionalLight.h" />
@@ -257,9 +239,6 @@
     <ClInclude Include="Source\Public\Texture.h" />
     <ClInclude Include="Source\Public\SystemBase.h" />
     <ClInclude Include="Source\Public\UniformBufferObject.h" />
-    <ClInclude Include="Source\Public\Math\Vector3.h" />
-    <ClInclude Include="Source\Public\Math\Vector2.h" />
-    <ClInclude Include="Source\Public\Math\Vector4.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\colorLit.frag" />

@@ -3,11 +3,11 @@ struct DebugDrawData
 {
 private:
 	GLenum drawType = GL_TRIANGLES;
-	std::vector<Vector3> verts;
+	std::vector<glm::vec3> verts;
 	glm::vec4 colour;
 
 public:
-	DebugDrawData(GLenum _drawType, std::vector<Vector3> _verts, glm::vec4 _colour)
+	DebugDrawData(GLenum _drawType, std::vector<glm::vec3> _verts, glm::vec4 _colour)
 	{
 		drawType = _drawType;
 		verts = _verts;
@@ -19,7 +19,7 @@ public:
 		return drawType;
 	}
 
-	void GetVerts(std::vector<Vector3>& _outVerts)
+	void GetVerts(std::vector<glm::vec3>& _outVerts)
 	{
 		_outVerts = verts;
 	}
@@ -33,7 +33,7 @@ public:
 class DebugDraw
 {
 public:
-	static void Line(Vector3 _start, Vector3 _end, glm::vec4 _colour);
+	static void Line(glm::vec3 _start, glm::vec3 _end, glm::vec4 _colour);
 	
 	static void Render(glm::mat4 _projectionView);
 

@@ -82,12 +82,12 @@ void Light::SetIntensity(float _intensity)
 	m_intensity = _intensity; 
 }
 
-Vector3 Light::GetColour()
+glm::vec3 Light::GetColour()
 { 
 	return m_colour; 
 }
 
-void Light::SetColour(Vector3 _colour)
+void Light::SetColour(glm::vec3 _colour)
 { 
 	m_colour = _colour; 
 }
@@ -124,6 +124,6 @@ EInitDepthType Light::GetShadowMapType() const
 
 LightData Light::GetLightData()
 {
-	LightData newData = LightData(GetLocation(), GetColour(), Vector3(0), GetIntensity(), 0.0f, 0);
+	LightData newData = LightData(GetLocation(), GetColour(), glm::vec3(0), GetIntensity(), 0.0f, 0);
 	return newData;
 }

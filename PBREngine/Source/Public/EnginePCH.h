@@ -11,10 +11,9 @@ using namespace std;
 #include "AntTweak\AntTweakBar.h"
 #include "imgui\imgui.h"
 
-#include "PhysX\PxPhysicsAPI.h"
-using namespace physx;
+//#include "PhysX\PxPhysicsAPI.h"
+//using namespace physx;
 
-#include "Math\Math.h"
 #include "Delegate.h"
 #include "DataTypes.h"
 

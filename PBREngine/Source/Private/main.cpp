@@ -1,6 +1,6 @@
 #include "EnginePCH.h"
 #include "EngineBase.h"
-#include <vld.h>
+//#include <vld.h>
 
 int main()
 {

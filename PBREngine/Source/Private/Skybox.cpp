@@ -16,7 +16,7 @@ void Skybox::Begin()
 	Material* mat = AssetManager::CreateDefaultMaterial(EMaterialType::MT_Skybox);
 	m_boxMesh->SetMaterial(0, mat);
 	err = glGetError();
-	m_boxMesh->SetLocalScale(Vector3(1000, 1000, 1000));
+	m_boxMesh->SetLocalScale(glm::vec3(1000, 1000, 1000));
 
 	m_boxMesh->OnPreRender.Add(this, &Skybox::OnPreRender);
 	m_boxMesh->OnPostRender.Add(this, &Skybox::OnPostRender);

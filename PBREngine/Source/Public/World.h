@@ -21,13 +21,13 @@ public:
 	bool DestroyObject(class WorldObject* object);
 
 	virtual World* GetWorld() const override;
-	class PxScene* GetPhysXScene() const;
+	//class PxScene* GetPhysXScene() const;
 
 	class Skybox* GetSkybox() const;
 
 private:
 	class Skybox* m_skybox = nullptr;
-	class PxScene* m_physxScene = nullptr;
+	//class PxScene* m_physxScene = nullptr;
 	class PhysicsManager* m_physicsManager = nullptr;
 
 	World* m_thisWorld;

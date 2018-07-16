@@ -3,7 +3,7 @@
 
 PointLight::PointLight(ObjectInitData OI) : Light(OI)
 {
-	SetColour(Vector3(1, 1, 1));
+	SetColour(glm::vec3(1, 1, 1));
 }
 
 PointLight::~PointLight()

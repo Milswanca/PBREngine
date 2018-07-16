@@ -73,12 +73,12 @@ WorldObject* WorldComponent::GetOwner() const
 	return m_owner;
 }
 
-void WorldComponent::Rotate(float angle, Vector3 axis)
+void WorldComponent::Rotate(float angle, glm::vec3 axis)
 {
 	GetTransform()->Rotate(angle, axis);
 }
 
-void WorldComponent::SetLocalLocation(Vector3 location)
+void WorldComponent::SetLocalLocation(glm::vec3 location)
 {
 	GetTransform()->SetLocalLocation(location);
 }
@@ -88,17 +88,17 @@ void WorldComponent::SetLocalRotation(glm::quat rotation)
 	GetTransform()->SetLocalRotation(rotation);
 }
 
-void WorldComponent::SetLocalScale(Vector3 scale)
+void WorldComponent::SetLocalScale(glm::vec3 scale)
 {
 	GetTransform()->SetLocalScale(scale);
 }
 
-void WorldComponent::SetWorldLocation(Vector3 location)
+void WorldComponent::SetWorldLocation(glm::vec3 location)
 {
 	GetTransform()->SetWorldLocation(location);
 }
 
-Vector3 WorldComponent::GetLocalLocation()
+glm::vec3 WorldComponent::GetLocalLocation()
 {
 	return GetTransform()->GetLocalLocation();
 }
@@ -108,7 +108,7 @@ glm::quat WorldComponent::GetLocalRotation()
 	return GetTransform()->GetLocalRotation();
 }
 
-Vector3 WorldComponent::GetLocalScale()
+glm::vec3 WorldComponent::GetLocalScale()
 {
 	return GetTransform()->GetLocalScale();
 }
@@ -118,7 +118,7 @@ glm::mat4 WorldComponent::GetLocalMatrix() const
 	return GetTransform()->GetLocalMatrix();
 }
 
-Vector3 WorldComponent::GetWorldLocation()
+glm::vec3 WorldComponent::GetWorldLocation()
 {
 	return GetTransform()->GetWorldLocation();
 }
@@ -128,7 +128,7 @@ glm::quat WorldComponent::GetWorldRotation()
 	return GetTransform()->GetWorldRotation();
 }
 
-Vector3 WorldComponent::GetWorldScale()
+glm::vec3 WorldComponent::GetWorldScale()
 {
 	return GetTransform()->GetWorldScale();
 }
@@ -138,17 +138,17 @@ glm::mat4 WorldComponent::GetWorldMatrix() const
 	return GetTransform()->GetWorldMatrix();
 }
 
-Vector3 WorldComponent::GetRightVector()
+glm::vec3 WorldComponent::GetRightVector()
 {
 	return GetTransform()->GetRightVector();
 }
 
-Vector3 WorldComponent::GetUpVector()
+glm::vec3 WorldComponent::GetUpVector()
 {
 	return GetTransform()->GetUpVector();
 }
 
-Vector3 WorldComponent::GetForwardVector()
+glm::vec3 WorldComponent::GetForwardVector()
 {
 	return GetTransform()->GetForwardVector();
 }

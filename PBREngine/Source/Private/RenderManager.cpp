@@ -25,7 +25,7 @@ void RenderManager::Init()
 		m_boundUniformBuffers[i] = nullptr;
 	}
 
-	m_cameraUniformBuffer = UniformBufferObject::Create(this, "CameraBlock", (sizeof(glm::mat4) * 2) + sizeof(Vector3));
+	m_cameraUniformBuffer = UniformBufferObject::Create(this, "CameraBlock", (sizeof(glm::mat4) * 2) + sizeof(glm::vec3));
 	BindUniformBuffer(m_cameraUniformBuffer, 0);
 
 	m_lightUniformBuffer = UniformBufferObject::Create(this, "LightBlock", (16 + (80 * 0)));
@@ -93,7 +93,7 @@ void RenderManager::RebufferCameraUniformBuffer(CameraComponent* _newCamera)
 
 	m_cameraUniformBuffer->SetBufferData(&_newCamera->GetView(), sizeof(glm::mat4), 0);
 	m_cameraUniformBuffer->SetBufferData(&_newCamera->GetProjection(), sizeof(glm::mat4), sizeof(glm::mat4));
-	m_cameraUniformBuffer->SetBufferData(&_newCamera->GetWorldLocation(), sizeof(Vector3), sizeof(glm::mat4) * 2);
+	m_cameraUniformBuffer->SetBufferData(&_newCamera->GetWorldLocation(), sizeof(glm::vec3), sizeof(glm::mat4) * 2);
 }
 
 void RenderManager::RenderScene(CameraComponent* camera, ERenderConditions condition)

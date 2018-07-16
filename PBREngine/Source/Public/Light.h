@@ -15,8 +15,8 @@ public:
 	float GetIntensity();
 	void SetIntensity(float _intensity);
 
-	Vector3 GetColour();
-	void SetColour(Vector3 _colour);
+	glm::vec3 GetColour();
+	void SetColour(glm::vec3 _colour);
 
 	unsigned int GetLightID() const;
 	void SetLightID(unsigned int _id);
@@ -36,10 +36,10 @@ protected:
 	class Material* shadowGenMaterial = nullptr;
 
 private:
-	Vector3 position;
+	glm::vec3 position;
 	unsigned int m_lightID = 0;
 	float m_intensity = 1;
-	Vector3 m_colour;
+	glm::vec3 m_colour;
 
 	class RenderManager* m_renderManager = nullptr;
 };
